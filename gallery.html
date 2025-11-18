@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фото и видео - Сайт учителя физической культуры</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .gallery-section {
+            padding: 3rem 0;
+        }
+        
+        .folders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .folder-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .folder-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .folder-icon {
+            background: #3498db;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 3rem;
+        }
+        
+        .folder-info {
+            padding: 1.5rem;
+        }
+        
+        .folder-info h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .folder-count {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .loading-spinner {
+            text-align: center;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VSaitmametov</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="methodical.html">Методическая копилка</a></li>
+                <li><a href="students.html">Обучающимся</a></li>
+                <li><a href="parents.html">Родителям</a></li>
+                <li><a href="legal.html">Нормативные документы</a></li>
+                <li><a href="gallery.html" class="active">Фото и видео</a></li>
+                <li><a href="guestbook.html">Гостевая книга</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gallery-section">
+            <div class="container">
+                <h1>Фото и видео</h1>
+                <p style="text-align: center; margin-bottom: 2rem;">Архив фотографий и видеоматериалов</p>
+                
+                <div class="folders-grid">
+                    <div class="folder-card" onclick="showLoading()">
+                        <div class="folder-icon">
+                            🏒
+                        </div>
+                        <div class="folder-info">
+                            <h3>Хоккейные тренировки</h3>
+                            <div class="folder-count">24 фотографии, 3 видео</div>
+                        </div>
+                    </div>
+                    
+                    <div class="folder-card" onclick="showLoading()">
+                        <div class="folder-icon">
+                            📚
+                        </div>
+                        <div class="folder-info">
+                            <h3>Методические занятия</h3>
+                            <div class="folder-count">18 фотографий, 2 видео</div>
+                        </div>
+                    </div>
+                    
+                    <div class="folder-card" onclick="showLoading()">
+                        <div class="folder-icon">
+                            🏃‍♂️
+                        </div>
+                        <div class="folder-info">
+                            <h3>Общие уроки физкультуры</h3>
+                            <div class="folder-count">32 фотографии, 5 видео</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Оверлей загрузки -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <h3>Загрузка...</h3>
+                <p>Проверьте подключение к интернету</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Сайт учителя физической культуры. Все права защищены.</p>
+            <p>Контактный email: teacher@sportschool.ru</p>
+        </div>
+    </footer>
+
+    <script>
+        function showLoading() {
+            const overlay = document.getElementById('loadingOverlay');
+            overlay.style.display = 'flex';
+            
+            // Через 3 секунды скрываем оверлей (имитация таймаута)
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                alert('Ошибка загрузки. Проверьте подключение к интернету.');
+            }, 3000);
+        }
+        
+        // Закрытие оверлея по клику
+        document.getElementById('loadingOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

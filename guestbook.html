@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гостевая книга - Сайт учителя физической культуры</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .guestbook-section {
+            padding: 3rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .guestbook-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .guestbook-card h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: #3498db;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+        
+        .message-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .message-author {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .message-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .message-text {
+            color: #34495e;
+            line-height: 1.5;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #e8f4f8;
+            border-radius: 10px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VSaitmametov</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="methodical.html">Методическая копилка</a></li>
+                <li><a href="students.html">Обучающимся</a></li>
+                <li><a href="parents.html">Родителям</a></li>
+                <li><a href="legal.html">Нормативные документы</a></li>
+                <li><a href="gallery.html">Фото и видео</a></li>
+                <li><a href="guestbook.html" class="active">Гостевая книга</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="guestbook-section">
+            <div class="container">
+                <h1>Гостевая книга</h1>
+                <p style="text-align: center; margin-bottom: 2rem;">Задавайте вопросы и оставляйте сообщения</p>
+                
+                <div class="success-message" id="successMessage">
+                    ✅ Ваше сообщение отправлено! Я отвечу вам в ближайшее время.
+                </div>
+                
+                <!-- Форма для отправки сообщения -->
+                <div class="guestbook-card">
+                    <h2>Написать сообщение</h2>
+                    <form id="guestbookForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Ваш email</label>
+                            <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" name="message" required placeholder="Введите ваше сообщение..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" id="submitBtn">Отправить сообщение</button>
+                    </form>
+                </div>
+                
+                <!-- Контактная информация -->
+                <div class="contact-info">
+                    <h3>📞 Контакты</h3>
+                    <p><strong>Email:</strong> neformal2006@gmail.com</p>
+                    <p><strong>Школа:</strong> ДС "Кристалл"</p>
+                    <p><strong>Консультации:</strong> Пн, Ср 15:00-16:00</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Сайт учителя физической культуры. Все права защищены.</p>
+            <p>Контактный email: neformal2006@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('guestbookForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Показать загрузку
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправка...';
+            
+            // Имитация отправки
+            setTimeout(() => {
+                successMessage.style.display = 'block';
+                form.reset();
+                
+                // Восстановить кнопку
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Отправить сообщение';
+                
+                // Скрыть сообщение через 5 секунд
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+                
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
